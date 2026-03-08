@@ -29,16 +29,16 @@ billions annually. This project answers:
 | Pandas & NumPy | Data manipulation |
 | Matplotlib & Seaborn | Visualizations |
 | Scikit-learn | ML models |
-| ARIMA | Time series forecasting |
+| Linear Regression | Weekly delay forecast | Trend Analysis |
 | SQL (SQLite) | Data querying & analysis |
 | Power BI | Interactive dashboard |
 
 ## 📊 Models Built
 | Model | Purpose | Performance |
 |-------|---------|-------------|
-| Random Forest | Delay prediction | XX% accuracy |
-| Gradient Boosting | Delay prediction | XX% accuracy |
-| ARIMA(1,1,1) | Delay forecasting | XX% MAPE |
+| Random Forest | Delay prediction | 66% accuracy |
+| Gradient Boosting | Delay prediction | 67.5% accuracy |
+|| Linear Regression | Weekly delay forecast | 
 | Linear Regression | Weekly trend | Baseline |
 
 ## 🗃️ SQL Analysis Highlights
