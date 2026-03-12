@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,9 +7,9 @@ import seaborn as sns
 st.title("Airline Delay Analytics Dashboard")
 st.write("Interactive analysis of airline delays")
 
-df = pd.read_csv("DelayedFlights.csv")
+df = pd.read_csv("airline_clean.csv")
 #Deleting(droping) the unnamed column
-df = df.drop(columns=["Unnamed: 0"], errors="ignore")
+#df = df.drop(columns=["Unnamed: 0"], errors="ignore")
 
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
@@ -1117,6 +1116,7 @@ print(f"\n  Worst Day : {day_map[daily.idxmax()]} "
 print(f"  Best Day  : {day_map[daily.idxmin()]} "
       f"({daily.min():.1f} mins)")
 print("="*50)
+
 
 
 
