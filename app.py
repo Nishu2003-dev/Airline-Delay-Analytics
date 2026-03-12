@@ -278,20 +278,15 @@ axes[0,0].set_ylabel('Average Delay (Minutes)')
 axes[0,0].axhline(y=airline_delay.mean(),color='black',linestyle='--',label='Industry Average')
 axes[0,0].legend()
 
-#Plot 2 --Monthly Delay Trend
-monthly_delay=df.groupby('Month')['ArrDelay'].mean()
-month_names_full=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-# Get actual month names for the months present in the data
-actual_month_indices = [int(m)-1 for m in monthly_delay.index] # Convert 1.0 to 0, 2.0 to 1 for list indexing
-month_labels = [month_names_full[i] for i in actual_month_indices]
+#Plot 2 --Weekly Delay Trend
+weekly_delay = df.groupby("Week")["ArrDelay"].mean()
 
-axes[0,1].plot(monthly_delay.index,monthly_delay.values,marker='o',linewidth=2.5,color='steelblue')
-axes[0,1].set_title('Monthly Delay Trend',fontweight='bold')
-axes[0,1].set_xlabel('Month')
-axes[0,1].set_ylabel('Avg Delay(mins)')
-axes[0,1].set_xticks(monthly_delay.index) # Set ticks to the actual months present
-axes[0,1].set_xticklabels(month_labels,rotation=45) # Set labels using the corresponding month names
-axes[0,1].grid(True,alpha=0.3)
+axes[0,1].plot(weekly_delay.index, weekly_delay.values, marker='o', linewidth=2.5, color='steelblue')
+axes[0,1].set_title('Weekly Delay Trend', fontweight='bold')
+axes[0,1].set_xlabel('Week Number')
+axes[0,1].set_ylabel('Avg Delay (mins)')
+axes[0,1].set_xticks(weekly_delay.index)
+axes[0,1].grid(True, alpha=0.3)
 
 #plot 3 -Top 10 Most Delayed Routes
 route_delay=df.groupby('Route')['ArrDelay'].mean()
@@ -1111,6 +1106,7 @@ print(f"\n  Worst Day : {day_map[daily.idxmax()]} "
 print(f"  Best Day  : {day_map[daily.idxmin()]} "
       f"({daily.min():.1f} mins)")
 print("="*50)
+
 
 
 
