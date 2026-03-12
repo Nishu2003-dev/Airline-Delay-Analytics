@@ -49,18 +49,13 @@ airline = st.sidebar.selectbox(
 
 filtered_df = df[df["UniqueCarrier"] == airline]
 
-monthly_delay = df.groupby("Month")["ArrDelay"].mean()
-
+weekly_delay = df.groupby("Week")["ArrDelay"].mean()
 fig, ax = plt.subplots()
-
-monthly_delay.plot(ax=ax)
-
-ax.set_title("Average Arrival Delay by Month")
-ax.set_xlabel("Month")
+weekly_delay.plot(ax=ax, marker='o')
+ax.set_title("Average Arrival Delay by Week")
+ax.set_xlabel("Week Number")
 ax.set_ylabel("Delay (minutes)")
-
 st.pyplot(fig)
-
 
 
 
@@ -1116,6 +1111,7 @@ print(f"\n  Worst Day : {day_map[daily.idxmax()]} "
 print(f"  Best Day  : {day_map[daily.idxmin()]} "
       f"({daily.min():.1f} mins)")
 print("="*50)
+
 
 
 
